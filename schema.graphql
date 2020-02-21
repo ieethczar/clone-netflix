@@ -1,0 +1,68 @@
+type Query{
+    getUsers(is_active:Boolean):[User!]!
+    getUser(id:ID, email:String):User
+    getMovies(is_active:Boolean):[Movie!]!
+    getMovie(id:ID, title:String):Movie
+}
+
+type Mutation{
+    createUser(data:Useradd!):User!
+    createMovie(data:Movieadd!):Movie!
+}
+
+input Useradd{
+    first_name:String!
+    last_name:String!
+    email:String!
+    password:String!
+    birth_date:String
+    photo:String
+}
+
+input Movieadd{
+    title:String!
+    description:String!
+    duration:Float!
+    banner:String!
+    media:String!
+}
+
+type Movie{
+    _id:ID
+    title:String
+    description:String
+    duration:Float
+    categories:[Category]
+    tags:[String]
+    banner:String
+    media:String
+    view_by:[User]
+    is_active:Boolean
+}
+
+type User{
+    _id:ID
+    first_name:String
+    last_name:String
+    email:String
+    birth_date:String
+    movie_viewed:[Movie]
+    is_active:Boolean
+    createdAt:String
+    updatedAt:String
+}
+
+type Category{
+    name:String
+    clasification:Clasification
+    movies_in:[Movie]
+    is_active:Boolean
+}
+
+enum Clasification{
+    G
+    PG
+    PG13
+    R
+    NC17
+}
