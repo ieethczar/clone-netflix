@@ -8,11 +8,11 @@ const CategorySchema = new Schema({
 		required: true,
 	},
 	clasification: {
-    type: String,
-    enum: ['G','PG','PG-13','R','NC-17'],
+		type: String,
+		enum: ['G','PG','PG-13','R','NC-17'],
 		required: true,
 	},
-  movies_in: {
+	movies_in: {
 		type: [Schema.Types.ObjectId],
 		ref: 'movie'
 	},
