@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ieethczar/clone-netflix/issues"
   },
-  "homepage": "https://github.com/ieethczar/clone-netflix#readme"
+  "homepage": "https://github.com/ieethczar/clone-netflix#readme",
+  "dependencies": {
+    "apollo-server": "^2.11.0"
+  }
 }
