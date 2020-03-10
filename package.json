@@ -1,0 +1,19 @@
+{
+  "name": "clone-netflix",
+  "version": "1.0.0",
+  "description": "Proyecto para cinta negra de DevF",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ieethczar/clone-netflix.git"
+  },
+  "author": "Cesar Gutierrez | Pablo Ramirez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ieethczar/clone-netflix/issues"
+  },
+  "homepage": "https://github.com/ieethczar/clone-netflix#readme"
+}
