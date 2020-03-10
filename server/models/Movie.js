@@ -17,7 +17,7 @@ const MovieSchema = new Schema({
 	},
 	categories: {
 		type: [Schema.Types.ObjectId],
-		ref: 'categories'
+		ref: 'category'
 	},
 	tags: {
 		type: [String]
@@ -31,7 +31,7 @@ const MovieSchema = new Schema({
 	},
 	view_by: {
 		type: [Schema.Types.ObjectId],
-		ref: 'users'
+		ref: 'user'
 	},
 	is_active: {
 		type: Boolean,
@@ -41,4 +41,4 @@ const MovieSchema = new Schema({
 	timestamps: true
 });
 
-module.exports = mongoose.model('movies', MovieSchema);
+module.exports = mongoose.model('movie', MovieSchema);

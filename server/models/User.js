@@ -25,7 +25,7 @@ const UsersSchema = new Schema({
 	},
 	movie_viewed: {
 		type: [Schema.Types.ObjectId],
-		ref: 'movies',
+		ref: 'movie',
 	},
 	is_active: {
 		type: Boolean,
@@ -35,4 +35,4 @@ const UsersSchema = new Schema({
 	timestamps: true
 });
 
-module.exports = mongoose.model('users', UsersSchema);
+module.exports = mongoose.model('user', UsersSchema);
