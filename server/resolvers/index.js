@@ -1,7 +1,7 @@
-const Querys = require('./Querys');
-const Mutations = require('./Mutations');
+const Query = require('./Query');
+const Mutation = require('./Mutation');
 
 module.exports = {
-	Querys,
-	Mutations,
+	Query,
+	Mutation,
 };

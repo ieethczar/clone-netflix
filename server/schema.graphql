@@ -2,45 +2,53 @@
 
 # GET
 type Query{
-  getUsers(is_active: Boolean): [User!]!
-  getUser(id: ID, email: String): User!
+  getUsers(is_active:Boolean):[User!]!
+  getUser(id:ID,email:String):User!
 
-  getMovies(is_active: Boolean): [Movie!]!
-  getMovie(id: ID): Movie!
+  # getMovies(is_active:Boolean):[Movie!]!
+  # getMovie(id:ID):Movie!
 
-  getCategories(is_active: Boolean): [Category!]!
-  getCategory(id: ID): Category!
+  # getCategories(is_active:Boolean):[Category!]!
+  # getCategory(id:ID):Category!
 }
 
 # POST
 type Mutation{
-  createUser(data: UserAdd): User!
-  createMovie(data: MovieAdd): Movie!
-  createCategory(data: CategoryAdd): Category!
+  createUser(data:UserAdd):User!
+  # createMovie(data:MovieAdd):Movie!
+  # createCategory(data:CategoryAdd):Category!
 }
 
+# ENTRY ----------------------------------->>
+# ENTRY ----------------------------------->>
+# ENTRY ----------------------------------->>
+
 input UserAdd {
-  first_name: String!
-  last_name: String!
-  email: String!
-  password: String!
-  birth_date: Date
+  first_name:String!
+  last_name:String!
+  email:String!
+  password:String!
+  birth_date:String
 }
 
 input MovieAdd {
-  title: String!
-  description: String!
-  duration: Float!
-  tags: [String!]!
-  banner: String!
-  media: String!
-  clasification: CLASIFICATION
-  category
+  title:String!
+  description:String!
+  duration:Float!
+  tags:[String!]!
+  banner:String!
+  media:String!
+  clasification:CLASIFICATION!
+  category: CategoryAdd!
 }
 
 input CategoryAdd {
-  name: String!
+  name:String!
 }
+
+# CATALOG ------------------------------->>
+# CATALOG ------------------------------->>
+# CATALOG ------------------------------->>
 
 enum CLASIFICATION{
   G
@@ -48,4 +56,34 @@ enum CLASIFICATION{
   PG13
   R
   NC17
+}
+
+# TYPES ----------------------------------->>
+# TYPES ----------------------------------->>
+# TYPES ----------------------------------->>
+
+type User{
+  _id:ID!
+  first_name: String
+  last_name: String
+  email: String
+  birth_date: String
+  is_active: Boolean
+}
+
+type Movie{
+  _id:ID!
+  title: String
+  description: String
+  duration: Float
+  tags:[String]
+  banner: String
+  media: String
+  clasification: CLASIFICATION
+  category: Category
+}
+
+type Category{
+  _id:ID!
+  name: String
 }
