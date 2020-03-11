@@ -1,0 +1,51 @@
+# Inicializacion de los querys
+
+# GET
+type Query{
+  getUsers(is_active: Boolean): [User!]!
+  getUser(id: ID, email: String): User!
+
+  getMovies(is_active: Boolean): [Movie!]!
+  getMovie(id: ID): Movie!
+
+  getCategories(is_active: Boolean): [Category!]!
+  getCategory(id: ID): Category!
+}
+
+# POST
+type Mutation{
+  createUser(data: UserAdd): User!
+  createMovie(data: MovieAdd): Movie!
+  createCategory(data: CategoryAdd): Category!
+}
+
+input UserAdd {
+  first_name: String!
+  last_name: String!
+  email: String!
+  password: String!
+  birth_date: Date
+}
+
+input MovieAdd {
+  title: String!
+  description: String!
+  duration: Float!
+  tags: [String!]!
+  banner: String!
+  media: String!
+  clasification: CLASIFICATION
+  category
+}
+
+input CategoryAdd {
+  name: String!
+}
+
+enum CLASIFICATION{
+  G
+  PG
+  PG13
+  R
+  NC17
+}

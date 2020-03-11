@@ -15,10 +15,6 @@ const MovieSchema = new Schema({
 		type: Number,
 		required: true,
 	},
-	categories: {
-		type: [Schema.Types.ObjectId],
-		ref: 'category'
-	},
 	tags: {
 		type: [String]
 	},
@@ -29,9 +25,18 @@ const MovieSchema = new Schema({
 		type: String,
 		required: true,
 	},
+	clasification: {
+		type: String,
+		enum: ['G','PG','PG-13','R','NC-17'],
+		required: true,
+	},
 	view_by: {
 		type: [Schema.Types.ObjectId],
 		ref: 'user'
+	},
+	category: {
+		type: [Schema.Types.ObjectId],
+		ref: 'category'
 	},
 	is_active: {
 		type: Boolean,
