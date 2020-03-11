@@ -1,7 +1,7 @@
 const User = require('../../models/User');
 
 module.exports = {
-	getUsers: (root, args) => User.find(args), 
+	getUsers: (root, args) => User.find(args).exec(), 
 	getUser: (root, args) => {
 		if(args.email && args.id) {
 			return User.find({ email: args.email, _id:args.id }).exec();
