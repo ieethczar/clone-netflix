@@ -5,18 +5,18 @@ type Query{
   getUsers(is_active:Boolean):[User!]!
   getUser(id:ID,email:String):User!
 
-  # getMovies(is_active:Boolean):[Movie!]!
-  # getMovie(id:ID):Movie!
+  getMovies(is_active:Boolean):[Movie!]!
+  getMovie(id:ID):Movie!
 
-  # getCategories(is_active:Boolean):[Category!]!
-  # getCategory(id:ID):Category!
+  getCategories(is_active:Boolean):[Category!]!
+  getCategory(id:ID):Category!
 }
 
 # POST
 type Mutation{
   createUser(data:UserAdd):User!
-  # createMovie(data:MovieAdd):Movie!
-  # createCategory(data:CategoryAdd):Category!
+  createMovie(data:MovieAdd):Movie!
+  createCategory(data:CategoryAdd):Category!
 }
 
 # ENTRY ----------------------------------->>
@@ -36,10 +36,10 @@ input MovieAdd {
   description:String!
   duration:Float!
   tags:[String!]!
-  banner:String!
-  media:String!
+  banner:String
+  media:String
   clasification:CLASIFICATION!
-  category: CategoryAdd!
+  category: [String!]!
 }
 
 input CategoryAdd {
@@ -69,6 +69,8 @@ type User{
   email: String
   birth_date: String
   is_active: Boolean
+  createdAt: String
+  updatedAt: String
 }
 
 type Movie{
@@ -80,10 +82,14 @@ type Movie{
   banner: String
   media: String
   clasification: CLASIFICATION
-  category: Category
+  category: [String]
+  createdAt: String
+  updatedAt: String
 }
 
 type Category{
   _id:ID!
   name: String
+  createdAt: String
+  updatedAt: String
 }

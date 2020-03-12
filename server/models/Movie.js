@@ -16,18 +16,18 @@ const MovieSchema = new Schema({
 		required: true,
 	},
 	tags: {
-		type: [String]
+		type: [String],
+		require: true,
 	},
 	banner:{
 		type: String,
 	},
 	media: {
 		type: String,
-		required: true,
 	},
 	clasification: {
 		type: String,
-		enum: ['G','PG','PG-13','R','NC-17'],
+		enum: ['G','PG','PG13','R','NC17'],
 		required: true,
 	},
 	view_by: {
