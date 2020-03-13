@@ -7,14 +7,9 @@ const CategorySchema = new Schema({
 		type: String,
 		required: true,
 	},
-	clasification: {
-    type: String,
-    enum: ['G','PG','PG-13','R','NC-17'],
-		required: true,
-	},
-  movies_in: {
+	movies_in: {
 		type: [Schema.Types.ObjectId],
-		ref: 'movies'
+		ref: 'movie'
 	},
 	is_active: {
 		type: Boolean,
@@ -24,4 +19,4 @@ const CategorySchema = new Schema({
 	timestamps: true
 });
 
-module.exports = mongoose.model('movies', CategorySchema);
+module.exports = mongoose.model('category', CategorySchema);

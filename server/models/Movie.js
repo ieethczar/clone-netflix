@@ -15,23 +15,28 @@ const MovieSchema = new Schema({
 		type: Number,
 		required: true,
 	},
-	categories: {
-		type: [Schema.Types.ObjectId],
-		ref: 'categories'
-	},
 	tags: {
-		type: [String]
+		type: [String],
+		require: true,
 	},
 	banner:{
 		type: String,
 	},
 	media: {
 		type: String,
+	},
+	clasification: {
+		type: String,
+		enum: ['G','PG','PG13','R','NC17'],
 		required: true,
 	},
 	view_by: {
 		type: [Schema.Types.ObjectId],
-		ref: 'users'
+		ref: 'user'
+	},
+	category: {
+		type: [Schema.Types.ObjectId],
+		ref: 'category'
 	},
 	is_active: {
 		type: Boolean,
@@ -41,4 +46,4 @@ const MovieSchema = new Schema({
 	timestamps: true
 });
 
-module.exports = mongoose.model('movies', MovieSchema);
+module.exports = mongoose.model('movie', MovieSchema);
