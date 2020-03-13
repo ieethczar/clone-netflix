@@ -33,9 +33,14 @@ async function start() {
 			maxFiles: 30,
 			maxFieldSize: 50000000 // 50 MB
 		},
+		cors:{
+			origin:process.env.WHITELIST.split(',')
+		}
 	});
 
-	server.listen().then(({url}) => {
+	const PORT = process.env.PORT || 4000;
+
+	server.listen({ port: PORT }).then(({url}) => {
 		console.log(`Server ready set: ${url}`);
 	});
 }
