@@ -6,6 +6,7 @@ type Query{
   getUsers(is_active:Boolean):[User!]!
   getUser(id:ID,email:String):User!
 
+  getMoviesByCategory(id:ID):[Movie!]!
   getMovies(is_active:Boolean):[Movie!]!
   getMovie(id:ID):Movie!
 

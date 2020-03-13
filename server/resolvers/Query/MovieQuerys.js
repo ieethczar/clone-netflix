@@ -8,4 +8,7 @@ module.exports = {
 		}
 		return new Error('You must pass one parameter');
 	},
+	getMoviesByCategory: (root, args) => {
+		return Movie.find({ category: { $in:[args.id] } });
+	}
 };
