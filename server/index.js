@@ -1,12 +1,15 @@
+require('dotenv').config();
+
 const { ApolloServer } = require('apollo-server');
 const { importSchema } = require('graphql-import');
+const { makeExecutableSchema } = require('graphql-tools');
 const mongoose = require('mongoose');
 const resolvers = require('./resolvers');
 
 async function start() {
 	const typeDefs = await importSchema(__dirname + '/schema.graphql');
 
-	const MONGO_URI = 'mongodb+srv://tester:1234567890p@cluster0-xcaqz.mongodb.net/clone-netflix-db?retryWrites=true&w=majority';
+	const MONGO_URI = process.env.MONGO_URI;
 
 	mongoose.connect(MONGO_URI, {
 		useNewUrlParser: true,
@@ -18,7 +21,19 @@ async function start() {
 	mongo.on('error', error => console.log(error))
 		.once('open', () => console.log('Connected to database'));
 
-	const server = new ApolloServer({typeDefs,resolvers});
+	const schema = makeExecutableSchema({
+		typeDefs,
+		resolvers,
+	});
+
+	const server = new ApolloServer({
+		schema,
+		uploads: {
+			maxFileSize: 50000000, // 50 MB
+			maxFiles: 30,
+			maxFieldSize: 50000000 // 50 MB
+		},
+	});
 
 	server.listen().then(({url}) => {
 		console.log(`Server ready set: ${url}`);

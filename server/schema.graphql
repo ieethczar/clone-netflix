@@ -1,3 +1,4 @@
+scalar Upload
 # Inicializacion de los querys
 
 # GET
@@ -36,8 +37,8 @@ input MovieAdd {
   description:String!
   duration:Float!
   tags:[String!]!
-  banner:String
-  media:String
+  banner:Upload
+  media:Upload
   clasification:CLASIFICATION!
   category: [String!]!
 }

@@ -19,7 +19,10 @@
   "homepage": "https://github.com/ieethczar/clone-netflix#readme",
   "dependencies": {
     "apollo-server": "^2.11.0",
+    "cloudinary": "^1.20.0",
+    "dotenv": "^8.2.0",
     "graphql-import": "^1.0.0-beta.2",
+    "graphql-tools": "^4.0.7",
     "mongoose": "^5.9.4"
   },
   "devDependencies": {
